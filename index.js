@@ -68,6 +68,7 @@ while (true) {
     response.functionCalls?.[0].name === "execute_command"
   ) {
     const functionResponseParts = [];
+    // looping as multiple tool calls from a single response is possible!
     for (const tool_call of response.functionCalls) {
       const command = tool_call.args.command;
       console.log(`executing command: "${command}"`);
